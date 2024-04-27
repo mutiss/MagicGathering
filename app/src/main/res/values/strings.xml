@@ -1,0 +1,24 @@
+<resources>
+  <string name="app_name">MagicGathering</string>
+
+  <!--  Screens -->
+  <string name="title_candidate_info">Candidate info</string>
+  <string name="title_cards_list">Cards list</string>
+  <string name="title_cards_detail">Card detail</string>
+
+  <!--  Card detail info -->
+  <string name="drag_image_to_see_bigger">Drag me to see me bigger!</string>
+
+  <!--  Candidate info -->
+  <string name="developer_name">Carlos Blaya</string>
+  <string name="developer_role">Android Developer</string>
+  <string name="developer_email">mutissx@gmail.com</string>
+  <string name="date_creation_project">22/03/2024</string>
+  <string name="welcome_message_info">Hello and welcome to my project\n\nI want to show a list of Magic The Gathering cards and their details.\n\nHope you enjoy it!</string>
+
+  <!--  Buttons -->
+  <string name="close">Close</string>
+  <string name="back">Back</string>
+  <string name="next">Next</string>
+
+</resources>
