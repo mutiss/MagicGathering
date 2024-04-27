@@ -7,7 +7,7 @@
   <string name="title_cards_detail">Card detail</string>
 
   <!--  Card detail info -->
-  <string name="drag_image_to_see_bigger">Drag me to see me bigger!</string>
+  <string name="drag_image_to_see_bigger">Pinch to see me bigger!</string>
 
   <!--  Candidate info -->
   <string name="developer_name">Carlos Blaya</string>
