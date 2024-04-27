@@ -5,14 +5,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import coil.request.CachePolicy
 import coil.request.ImageRequest
 import com.mutissx.magic.R
 
 @Composable
-fun CardRowImage(url: String?) {
+fun CardRowImage(url: String?, width: Dp = 150.dp, height: Dp = 200.dp) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(url)
@@ -20,7 +20,7 @@ fun CardRowImage(url: String?) {
             .build(),
         contentDescription = null,
         modifier = Modifier
-            .size(width = 100.dp, height = 100.dp),
+            .size(width = width, height = height),
         error = painterResource(id = R.drawable.magic_card_placeholder)
     )
 }

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -33,10 +34,10 @@ fun ZoomableCardDetail(model: String?, contentDescription: String? = null) {
         .fillMaxSize()
         .padding(top = 16.dp, bottom = 8.dp),
         contentAlignment = Alignment.Center) {
-        val angle by remember { mutableStateOf(0f) }
-        var zoom by remember { mutableStateOf(1f) }
-        var offsetX by remember { mutableStateOf(0f) }
-        var offsetY by remember { mutableStateOf(0f) }
+        val angle by remember { mutableFloatStateOf(0f) }
+        var zoom by remember { mutableFloatStateOf(1f) }
+        var offsetX by remember { mutableFloatStateOf(0f) }
+        var offsetY by remember { mutableFloatStateOf(0f) }
 
         val configuration = LocalConfiguration.current
         val screenWidth = configuration.screenWidthDp.dp.value
@@ -48,7 +49,7 @@ fun ZoomableCardDetail(model: String?, contentDescription: String? = null) {
             contentScale = ContentScale.Fit,
             error = painterResource(id = R.drawable.magic_card_placeholder),
             modifier = Modifier
-                .size(width = 200.dp, height = 200.dp)
+                .size(width = 300.dp, height = 300.dp)
                 .offset { IntOffset(offsetX.roundToInt(), offsetY.roundToInt()) }
                 .graphicsLayer(
                     scaleX = zoom,
