@@ -22,6 +22,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun CardsDetailScreen(
     navController: NavController,
+    idCard: String,
     viewModel: CardsDetailViewModel = koinViewModel()
 ) {
     val openDialog = rememberSaveable { mutableStateOf(false) }

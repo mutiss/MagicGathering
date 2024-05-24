@@ -31,10 +31,10 @@ fun Loader() {
             .fillMaxSize(),
         verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LottieAnimation(
+        /*LottieAnimation(
             composition,
             modifier = Modifier.size(200.dp),
-            progress = { lottieProgress })
+            progress = { lottieProgress })*/
     }
 }
 

@@ -14,11 +14,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
+import androidx.navigation.toRoute
 import com.mutissx.magic.R
 import com.mutissx.magic.presentation.common.components.TopBar
 import com.mutissx.magic.presentation.screens.Screen
@@ -26,7 +25,6 @@ import com.mutissx.magic.presentation.screens.candidate_info.CandidateInfoScreen
 import com.mutissx.magic.presentation.screens.cards_detail.CardsDetailScreen
 import com.mutissx.magic.presentation.screens.cards_list.CardsListScreen
 import com.mutissx.magic.presentation.ui.theme.MagicTheme
-import com.mutissx.magic.presentation.util.Constants
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,28 +48,23 @@ class MainActivity : ComponentActivity() {
                             Box(Modifier.padding(paddingValues)) {
                                 NavHost(
                                     navController = navController,
-                                    startDestination = Screen.CandidateInfoScreen.route
+                                    startDestination = Screen.CandidateInfoScreen
                                 ) {
-                                    composable(Screen.CandidateInfoScreen.route) {
+                                    composable<Screen.CandidateInfoScreen> {
                                         nameScreen =
                                             stringResource(id = R.string.title_candidate_info)
                                         CandidateInfoScreen(navController = navController)
                                     }
-                                    composable(
-                                        Screen.CardsListScreen.route
-                                    ) {
+                                    composable<Screen.CardsListScreen> {
                                         nameScreen = stringResource(id = R.string.title_cards_list)
                                         CardsListScreen(navController = navController)
                                     }
-                                    composable(
-                                        Screen.CardsDetailScreen.route,
-                                        arguments = listOf(navArgument(Constants.CARDS_DETAILS_ARGUMENT_KEY) {
-                                            type = NavType.StringType
-                                        })
-                                    ) {
+
+                                    composable<Screen.CardsDetailScreen> { backStackEntry ->
+                                        val idCard = backStackEntry.toRoute<Screen.CardsDetailScreen>().idCard
                                         nameScreen =
                                             stringResource(id = R.string.title_cards_detail)
-                                        CardsDetailScreen(navController = navController)
+                                        CardsDetailScreen(navController = navController, idCard = idCard)
                                     }
                                 }
                             }
@@ -82,3 +75,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
