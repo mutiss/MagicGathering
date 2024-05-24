@@ -61,7 +61,7 @@ fun CandidateInfoScreen(navController: NavController) {
             }
         }
         Button(onClick = {
-            navController.navigate(Screen.CardsListScreen.route)
+            navController.navigate(Screen.CardsListScreen)
         }, modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
                 modifier = Modifier

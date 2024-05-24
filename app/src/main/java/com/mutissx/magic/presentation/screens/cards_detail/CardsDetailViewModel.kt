@@ -23,8 +23,9 @@ class CardsDetailViewModel(
     }
 
     fun getCardsDetail() {
-        savedStateHandle.get<String>(key = Constants.CARDS_DETAILS_ARGUMENT_KEY)?.let {
-            val idCard = it
+
+        checkNotNull(savedStateHandle["idCard"]).let {
+            val idCard: String = it.toString()
             viewModelScope.launch {
                 getCardDetailUseCase.invokeWithParams(idCard = idCard).collect { result ->
                     when (result) {
