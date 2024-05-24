@@ -38,11 +38,7 @@ fun CardListItem(navController: NavController, card: CardsDomain?) {
             .fillMaxWidth()
             .padding(16.dp)
             .clickable {
-                navController.navigate(
-                    route = Screen.CardsDetailScreen.passIdCard(
-                        card?.id.orEmpty()
-                    )
-                )
+                navController.navigate(Screen.CardsDetailScreen(card?.id.orEmpty()))
             }
     ) {
         CardRowImage(card?.image)
